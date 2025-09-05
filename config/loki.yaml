@@ -1,0 +1,10 @@
+auth_enabled: false
+
+distributor:
+  default_resource_attributes_as_index_labels: true
+
+limits_config:
+  allow_structured_metadata: true
+
+server:
+  http_listen_port: 3100

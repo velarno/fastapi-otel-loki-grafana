@@ -1,0 +1,33 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  json_formatter:
+    (): pythonjsonlogger.jsonlogger.JsonFormatter
+    format: '%(asctime)s - %(levelname)s - %(name)s - %(message)s'
+    datefmt: '%Y-%m-%dT%H:%M:%S'
+
+handlers:
+  file_handler:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: json_formatter
+    filename: application.log
+    mode: a
+    encoding: utf-8
+
+  console_handler:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: json_formatter
+    stream: ext://sys.stdout
+
+loggers:
+  rfp_analyzer:
+    level: DEBUG
+    handlers: [file_handler, console_handler]
+    propagate: false
+
+root:
+  level: DEBUG
+  handlers: [file_handler, console_handler]

@@ -1,0 +1,8 @@
+from app.routes import app
+from app.log import get_logger
+from uvicorn import run
+
+def main() -> None:
+    logger = get_logger(__name__)
+    logger.debug("Starting server")
+    run(app, host="0.0.0.0", port=8000)
