@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.log import get_logger
+from fastapi_otel_loki_grafana.log import get_logger
 
 app = FastAPI(
     title="fastapi-otel-loki-grafana",

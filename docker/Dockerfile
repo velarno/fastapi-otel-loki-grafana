@@ -10,6 +10,4 @@ RUN apt-get update && apt-get install -y curl
 
 RUN uv sync
 
-CMD ["uv", "run", "rfp-analyzer"]
-
-#CMD ["uv", "run", "opentelemetry-instrument", "--traces_exporter", "console", "--metrics_exporter", "none", "--logs_exporter", "none", "python", "rfp_analyzer.__main__.py"]
+CMD ["uv", "run", "fastapi-server"]

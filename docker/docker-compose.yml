@@ -3,14 +3,14 @@ services:
     image: otel/opentelemetry-collector-contrib:latest
     volumes:
     - ./otel-config.yaml:/etc/otelcol-contrib/config.yaml
-    - rfp-analyzer-logs:/usr/src/app
+    - fastapi-server-logs:/usr/src/app
     command: ["--config=/etc/otelcol-contrib/config.yaml"]
     ports:
       - "4317:4317"
     networks:
       - default
     depends_on:
-      rfp-analyzer:
+      fastapi-server:
         condition: service_healthy
 
   loki:
@@ -23,7 +23,7 @@ services:
     networks:
       - default
 
-  rfp-analyzer:
+  fastapi-server:
     build: .
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
@@ -33,7 +33,7 @@ services:
       start_period: 5s
       start_interval: 5s
     volumes:
-    - rfp-analyzer-logs:/app:rw
+    - fastapi-server-logs:/app:rw
     ports:
     - "8000:8000"
     networks:
@@ -55,6 +55,6 @@ networks:
     driver: bridge
 
 volumes:
-  rfp-analyzer-logs:
+  fastapi-server-logs:
   loki-data:
   grafana-data:

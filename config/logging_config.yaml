@@ -23,7 +23,7 @@ handlers:
     stream: ext://sys.stdout
 
 loggers:
-  rfp_analyzer:
+  fastapi-server:
     level: DEBUG
     handlers: [file_handler, console_handler]
     propagate: false

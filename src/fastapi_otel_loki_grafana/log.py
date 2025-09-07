@@ -3,8 +3,9 @@ import logging.config
 import yaml
 from pathlib import Path
 
-app_dir = Path(__file__).parent
-root_dir = app_dir.parent
+package_dir = Path(__file__).parent
+source_dir = package_dir.parent
+root_dir = source_dir.parent
 config_dir = root_dir / 'config'
 
 def setup_logging():

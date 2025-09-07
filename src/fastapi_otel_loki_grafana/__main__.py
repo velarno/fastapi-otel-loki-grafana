@@ -1,5 +1,5 @@
-from app.routes import app
-from app.log import get_logger
+from fastapi_otel_loki_grafana.routes import app
+from fastapi_otel_loki_grafana.log import get_logger
 from uvicorn import run
 
 def main() -> None:
